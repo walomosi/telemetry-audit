@@ -17,6 +17,9 @@ namespace TelemetryAudit.Core
         public string DisableHint; // registry path / service name / schtasks path
     }
 
+    // Three sources cover the real surface: registry switches (AllowTelemetry),
+    // services (DiagTrack), and scheduled tasks (Compressor/Consolidator) —
+    // flipping only one leaves the others still firing.
     internal static class TelemetryScanner
     {
         public static List<TelemetryItem> Scan()
